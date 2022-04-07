@@ -1,0 +1,7 @@
+# created by virtualenv automatically
+/include
+/Lib
+/Scripts
+/uploaded_images
+pyvenv.cfg
+/static
