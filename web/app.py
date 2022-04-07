@@ -14,8 +14,11 @@ from keras.preprocessing import image
 from pyexpat import model
 from flask import Flask, flash, request, redirect, url_for, render_template, jsonify
 from datetime import datetime
+from pathlib import Path
 
-UPLOAD_FOLDER = '.\\images'
+Path("./uploaded_images").mkdir(parents=True, exist_ok=True)
+
+UPLOAD_FOLDER = './uploaded_images'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'jfif'])
 
 app = Flask(__name__)
@@ -29,6 +32,10 @@ def get_model(model_name):
     print('./models/' + model_name + '.h5')
     model_name = load_model('./models/' + model_name + '.h5')
     return model_name
+
+@app.route('/about', methods = ['GET'])
+def about():
+    return render_template('about.html')
 
 @app.route('/', methods = ['GET', 'POST'])
 def predict():
