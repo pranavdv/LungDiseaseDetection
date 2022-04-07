@@ -21,6 +21,95 @@ Index
 
 
     <title>Lung Disease Detection</title>
+    <style>
+      .checkboxHolder{
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+        justify-content: flex-start;
+        padding-left: 42%;
+        font-size: 20px;
+      }
+      .checkbox-container{
+        display: flex;
+        align-items: center;
+        margin-bottom: 1%;
+      }
+      .checkbox-container label{
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+      }
+      .checkbox-container input[type='checkbox']{
+        cursor: pointer;
+        opacity: 0;
+        position: absolute;
+      }
+      .checkbox-container label::before{
+        content: '';
+        width: 1em;
+        height: 1em;
+        border-radius: 0.15em;
+        margin-right: 0.5em;
+        border: 0.05em solid black;
+      }
+      .checkbox-container label:hover::before, 
+      .checkbox-container input[type='checkbox']:hover + label::before{
+        background-color: #FFF56D;
+      }
+
+      .checkbox-container input[type='checkbox']:checked + label::before{
+        content: '\002714';
+        background-color: #FFD36E;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+      }
+      .button-two{
+        text-align: center;
+        cursor: pointer;
+        font-size:24px;
+        margin: 0 0 0 0px;
+      }
+      .button-two {
+  border-radius: 4px;
+  background-color:#d35400;
+  border: none;
+  padding: 20px;
+  width: 150px;
+  transition: all 0.5s;
+}
+
+
+      .button-two span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+      }
+
+      .button-two span:after {
+        content: '»';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+      }
+
+      .button-two:hover span {
+        padding-right: 25px;
+      }
+
+      .button-two:hover span:after {
+        opacity: 1;
+        right: 0;
+      }
+      .sub-main{
+        margin-bottom: 20px;
+      }
+    </style>
   </head>
   <body>
     <h2 style="text-align:center">Lung Disease Detection</h2><br><br><br><br><br>
@@ -37,14 +126,37 @@ Index
         <h4>Select one or more models for prediction</h4>
         <div class="container" align="center">
         <div class="Models required" align="center" style="font-size: 20px;">
-          <input type=checkbox name=model value='MobileNet'> MobileNet <br/>
-          <input type=checkbox name=model value='ResNet50'> ResNet50 <br/>
-          <input type=checkbox name=model value='InceptionNetV3'> InceptionNetV3 <br/>
-          <input type=checkbox name=model value='InceptionResNetV2'> InceptionResNetV2 <br/>
-          <input type=checkbox name=model value='VGG16'> VGG16 <br/>
-          <input type=checkbox name=model value='AlexNet'> AlexNet <br/>
+        </div>
+        <div class="checkboxHolder">
+          <div class="checkbox-container">
+              <input type=checkbox name=model value='MobileNet' id="cb1">
+              <label for="cb1">MobileNet</label>
+            </div>
+            <div class="checkbox-container">
+              <input type=checkbox name=model value='ResNet50' id="cb2"> 
+              <label for="cb2">ResNet50</label>
+            </div>
+            <div class="checkbox-container">
+              <input type=checkbox name=model value='InceptionNetV3' id="cb3"> 
+              <label for="cb3">InceptionNetV3</label>
+            </div>
+            <div class="checkbox-container">
+              <input type=checkbox name=model value='InceptionResNetV2' id="cb4"> 
+              <label for="cb4">InceptionResNetV2</label>
+            </div>
+            <div class="checkbox-container">
+              <input type=checkbox name=model value='VGG16' id="cb4"> 
+              <label for="cb4">VGG16</label>
+            </div>
+            <div class="checkbox-container">
+              <input type=checkbox name=model value='AlexNet' id="cb5"> 
+              <label for="cb5">AlexNet</label>
+            </div>
+        </div>
         </div><br><br><br> 
-        <input class="btn btn-primary btn-lg" type="submit" value="Upload and Submit">
+        <div class="sub-main">
+          <button class="button-two"><span>Submit</span></button>
+        </div>
       </form>
     </div>
 {% endblock %}
