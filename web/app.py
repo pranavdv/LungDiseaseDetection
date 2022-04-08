@@ -75,9 +75,9 @@ def predict():
 
                 # predicting images
                 if model == 'ResNet50' or model == 'InceptionResNetV2':
-                    img = image.load_img('./images/input.jpeg', target_size=(180, 180))
+                    img = image.load_img('./static/input.jpeg', target_size=(180, 180))
                 else:
-                    img = image.load_img('./images/input.jpeg', target_size=(224, 224))
+                    img = image.load_img('./static/input.jpeg', target_size=(224, 224))
                 x = image.img_to_array(img)
                 x = np.expand_dims(x, axis=0)
                 x = x/255
