@@ -16,13 +16,14 @@ from flask import Flask, flash, request, redirect, url_for, render_template, jso
 from datetime import datetime
 from pathlib import Path
 
-Path("./uploaded_images").mkdir(parents=True, exist_ok=True)
+Path("./static").mkdir(parents=True, exist_ok=True)
 
-UPLOAD_FOLDER = './uploaded_images'
+UPLOAD_FOLDER = './static'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'jfif'])
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app._static_folder = 'static'
 
 def allowed_file(filename):
     return '.' in filename and \
